@@ -1,0 +1,67 @@
+@import "../main";
+@page-radius: 3px;
+@page-color: #337ab7;
+@page-background-color: #fff;
+
+@page-hover-color: #fff;
+@page-hover-background-color: #337ab7;
+
+.sinosoft_page2{
+  height: 30px;
+  .page_label {
+    display: inline-block;
+    line-height: 20px;
+    float: left;
+    padding: 3px;
+    margin: 0;
+    .page_go {
+      width: 40px;
+    }
+  }
+  .pad-30{
+    //margin-left: 33% !important;
+  }
+  ul{
+    display: inline-block;
+    margin-left: 27%;
+    float: left;
+    border-radius: @page-radius;
+    li {
+      display: inline;
+      &:first-child {
+        > a {
+          margin-left: 0;
+          border-top-left-radius: @page-radius;
+          border-bottom-left-radius: @page-radius;
+        }
+      }
+      &:last-child {
+        > a {
+          margin-right: 0;
+          border-top-right-radius: @page-radius;
+          border-bottom-right-radius: @page-radius;
+        }
+      }
+      &.active {
+        a {
+          background-color: @page-hover-background-color;
+          color: @page-hover-color;
+        }
+      }
+      a{
+        position: relative;
+        float: left;
+        min-width: 34px;
+        padding: 4px 10px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        color: @page-color;
+        text-decoration: none;
+        background-color: @page-background-color;
+        border: 1px solid @app-text-border-color;
+        cursor: pointer;
+      }
+    }
+
+  }
+}

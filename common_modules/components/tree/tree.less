@@ -1,0 +1,99 @@
+@import "../main";
+
+@tree-background-color: #e5eeee;
+
+.sinosoft_tree {
+  > ul {
+    margin-left: -25px;
+  }
+  ul {
+    white-space: nowrap;
+    li {
+      &:not(:last-child) {
+        background: url('img/fileIcon.png') repeat-y -281px -4px;
+      }
+      list-style: none;
+      padding-left: 25px;
+      white-space: nowrap;
+      .tree-opt {
+        display: inline-block;
+        width: 50px;
+        font-size: 12px;
+        text-align: center;
+        height: 22px;
+        line-height: 22px;
+        a{
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          line-height: 20px;
+          text-align: center;
+        }
+        .icon{
+          cursor: pointer;
+        }
+        .tree-opt-edit{
+          color: #337ab7;
+        }
+        .tree-opt-remove{
+          color: #337ab7;
+        }
+        //padding-right: 15px;
+      }
+      .tree-content {
+        display: inline-block;
+        padding: 2px 3px;
+        vertical-align: top;
+        line-height: 20px;
+        border: 1px dotted transparent;
+        border-radius: 3px;
+        //width: 80%;
+        //min-width: 140px;
+        white-space: nowrap;
+        margin: 0;
+        height: 26px;
+        &:hover {
+          background-color: @tree-background-color;
+          border: 1px solid darken(@tree-background-color, 2%);
+        }
+        &.active {
+          background-color: @tree-background-color;
+          border: 1px solid darken(@tree-background-color, 2%);
+        }
+        div {
+          display: inline-block;
+        }
+        > span {
+          border-radius: 3px;
+        }
+        > i {
+          color: #666;
+        }
+      }
+      &.tree-node {
+        &.tree-open > .tree-icon {
+          background-position: -132px -4px;
+        }
+        > .tree-icon {
+          cursor: pointer;
+          background-position: -100px -4px;
+        }
+      }
+
+      .tree-icon {
+        display: inline-block;
+        width: 25px;
+        height: 23px;
+        vertical-align: top;
+        background: url('img/fileIcon.png') no-repeat -68px -4px;
+      }
+      .tree_checkbox{
+        display: inline-block;
+        vertical-align: bottom;
+        line-height: 30px;
+        padding-right: 5px;
+        width: 20px;
+      }
+    }
+  }
+}

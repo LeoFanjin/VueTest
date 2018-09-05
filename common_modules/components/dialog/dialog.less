@@ -1,0 +1,43 @@
+@import "../main";
+
+@dialog-header-height: 40px;
+@dialog-header-font-size: @font-size-base + 2;
+@dialog-border-color: @app-divide-border-color;
+
+.sinosoft-dialog{
+  margin-top: 50px;
+  z-index: 2000;
+  .modal-content{
+    border-radius: 1px;
+  }
+
+  .modal-header{
+    padding: 10px 15px;
+    height: @dialog-header-height;
+    .modal-title {
+      display: inline-block;
+      margin-right: 100px;
+      font-size: @app-font-size + 2;
+      .text-ellipsis;
+    }
+    > ul {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: inline-block;
+      height: @dialog-header-height;
+      > li {
+        float:left;
+        .slide-hover(@dialog-header-height, @dialog-header-height);
+        .select(none);
+        height: @dialog-header-height;
+        line-height: @dialog-header-height;
+        padding: 0 (@dialog-header-height - 17) / 2;
+        font-size: @dialog-header-font-size;
+        border-left: 1px solid @dialog-border-color;
+        cursor: pointer;
+        color: #546784;
+      }
+    }
+  }
+}

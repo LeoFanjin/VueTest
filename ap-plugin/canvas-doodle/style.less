@@ -1,0 +1,37 @@
+#canvas_doodle{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.77);
+  padding: 0;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  #wPaint{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+  .btn-group{
+    position: fixed;
+    top: 7px;
+    right: 22px;
+    width: 80px;
+    height: 34px;
+    -moz-box-shadow:0px 1px 10px #333333; 
+    -webkit-box-shadow:0px 1px 10px #333333; 
+    box-shadow:0px 1px 10px #333333;
+    div{
+      width: 40px;
+      font-size: 24px;
+      float: left;
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+      &:hover{
+        background-color: #dcdcdc;
+      }
+    }
+  }
+}

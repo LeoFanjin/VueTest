@@ -1,0 +1,113 @@
+.panel {
+  margin-bottom: 0;
+  border: 1px solid @app-model-border-color;
+  .panel-heading {
+    position: relative;
+    border-bottom: 1px solid @app-model-border-color;
+    height: @panel-head-height;
+    background-color: @app-background-base;
+
+    .panel-title {
+      margin-right: 100px;
+      color: @app-nav-font-color;
+      font-size: @app-font-size + 2;
+      .text-ellipsis;
+    }
+    .panel-opt {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: @panel-head-height;
+
+      .search {
+        float: left;
+        padding: (@panel-head-height - 30) / 2 5px;
+        > input {
+          width: 200px;
+          border-radius: 0;
+        }
+        .el-input__inner {
+          border-radius: 0;
+        }
+      }
+      > ul {
+        float: left;
+        > li {
+          .slide-hover(@panel-head-height, @panel-head-height - 1);
+          &[disabled] {
+            pointer-events:none;
+            background-color: @panel-disabled-background-color;
+            color: @panel-disabled-text-color;
+          }
+          .select(none);
+
+          position: relative;
+          float:left;
+          padding: (@panel-head-height - 22) / 2 (@panel-head-height - 17) / 2;
+          border-left: 1px solid @app-model-border-color;
+          cursor: pointer;
+          color: #546784;
+          font-size: @app-font-size + 2;
+        }
+      }
+    }
+  }
+  .panel-body {
+    padding: 20px;
+    color: @app-detail-font-color;
+    .ap-search{
+      min-height: 30px;
+      .form-control{
+        height: 30px;
+        border-radius: 0;
+        box-shadow: 0 0 0 #000 !important;
+      }
+      .el-input,
+      .el-select,
+      .el-cascader,
+      .sinosoft_address_picker,
+      .el-date-editor{
+        input{
+          border-radius: 0 !important;
+          height: 30px;
+        }
+      }
+      .btn{
+        min-width: 30px !important;
+        height: 30px;
+        padding: 0;
+        line-height: 1;
+        text-align: center;
+      }
+    }
+  }
+  .panel-foot {
+    position: relative;
+    height: @panel-head-height + 10;
+
+    .panel-opt {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: @panel-head-height;
+
+      > ul {
+        float: left;
+        > li {
+          .select(none);
+          position: relative;
+          float: left;
+          cursor: pointer;
+          padding: 5px 20px;
+          margin: 5px;
+          border: 1px solid @app-model-border-color;
+          color: #546784;
+          font-size: @app-font-size + 2;
+          &:hover{
+            background-color: @panel-foot-opt-background-color;
+          }
+        }
+      }
+    }
+  }
+}

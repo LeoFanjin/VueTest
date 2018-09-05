@@ -1,0 +1,15 @@
+export const API = require('./api');
+export const Ajax = require('./ajax');
+export const Storage = require('./storage');
+export const tree = require('./tree');
+export const Validate = require('./validate');
+export const resource = require('./resource');
+export const logout = require('./logout');
+export const constant = require('./constant');
+export const dict = require('./dict');
+export const Alerts = require('./alerts');
+export const dialog = require('./dialog');
+export const lang = require('./lang');
+export const mask = require('./mask');
+export const cookie = require('./cookie');
+export const myBrowser = require('./agent').myBrowser;

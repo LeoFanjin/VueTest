@@ -1,0 +1,127 @@
+@import "../../../../static/css/theme-simple/variables/main";
+
+#ui_system_auth_permission {
+  .panel-role {
+    margin-top: 15px;
+  }
+  .panel-body {
+    overflow-x: auto;
+    min-height: 120px;
+    .link {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: pointer;
+
+      > div {
+        padding: 5px 10px;
+      }
+      &.active {
+        > div {
+          background-color: @nav-color-active;
+          border-radius: 2px;
+        }
+      }
+    }
+    #permissionList {
+      table {
+        width: 100%;
+        th,td {
+          border-bottom: 1px solid @app-divide-border-color;
+          padding: 5px;
+          border-bottom: 1px solid @app-divide-border-color;
+          input {
+            border-radius: 0;
+          }
+          &.opt {
+            width: 60px;
+            text-align: center;
+            a{
+              display: inline-block;
+              text-align: center !important;
+              line-height: 22px;
+              width: 22px;
+              height: 22px;
+            }
+          }
+          &.icon {
+            width: 72px;
+            text-align: center;
+          }
+          &.check {
+            width: 40px;
+          }
+          &:first-child {
+            text-align: center;
+          }
+        }
+        thead {
+          th {
+            text-align: center;
+            //font-weight: 500;
+          }
+        }
+        tbody {
+          td {
+            text-align: left;
+            &.icon {
+              color: #dcdcdc;
+            }
+          }
+        }
+      }
+    }
+    #roleList {
+      table {
+        width: 100%;
+        th,td {
+          border-bottom: 1px solid @app-divide-border-color;
+          padding: 5px;
+          border-bottom: 1px solid @app-divide-border-color;
+          input {
+            border-radius: 0;
+          }
+          &.opt {
+            width: 60px;
+            text-align: center;
+            a{
+              display: inline-block;
+              text-align: center !important;
+              line-height: 22px;
+              width: 22px;
+              height: 22px;
+            }
+          }
+          &.check {
+            width: 40px;
+          }
+          &:first-child {
+            text-align: center;
+          }
+        }
+        thead {
+          th {
+            text-align: center;
+            //font-weight: 500;
+          }
+        }
+        tbody {
+          td {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  .black {
+    color: #DF8505 ;
+  }
+  .green {
+    color: #659265 ;
+  }
+  .yellow {
+    color: #b1811d ;
+  }
+  .blue {
+    color: #3276b1 ;
+  }
+}

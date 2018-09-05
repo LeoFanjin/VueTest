@@ -1,0 +1,59 @@
+@import "../../../../static/css/theme-simple/variables/main";
+
+#ap_system_operation {
+  .panel-body{
+    overflow-x: auto;
+    min-height: 300px;
+    overflow-y: auto;
+    .operation {
+      padding-top: 10px;
+      padding-bottom: 5px;
+      padding-left: 0;
+      border-bottom: 1px solid @app-divide-border-color;
+      &:first-child {
+        padding-top: 0;
+      }
+      div {
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 0;
+        padding-right: 10px;
+        input {
+          border-radius: 0;
+        }
+        &.opt {
+          text-align: center;
+          width: 60px;
+          line-height: 25px;
+          a{
+            display: inline-block;
+            text-align: center !important;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+          }
+          &.icon{
+            width: 72px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  #operationAddForm {
+    input {
+      -moz-appearance: none;
+      background-color: #FFFFFF;
+      border: 1px solid #C0CCDA;
+      border-radius: 4px;
+      color: #1F2D3D;
+      display: block;
+      font-size: inherit;
+      height: 36px;
+      line-height: normal;
+      padding: 3px 10px;
+      width: 100%;
+    }
+  }
+}

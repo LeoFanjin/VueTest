@@ -1,0 +1,48 @@
+/* table */
+.el-table {
+  border-color: @el-table-border-color;
+  color: @el-table-font-color;
+  &:before, &:after {
+    background: @el-table-border-color;
+  }
+  thead div {
+    color: @el-table-tr-font-color;
+  }
+  th {
+    background-color: @el-table-th-background;
+  }
+  .el-table__header-wrapper thead div {
+    background-color: @el-table-th-background;
+    font-weight: normal;
+    text-align: center;
+  }
+  tr {
+    background: @el-table-tr-background;
+  }
+  &.el-table--enable-row-hover tr:hover > td {
+    background-color: @el-table-tr-hover-background;
+  }
+  td, th.is-leaf {
+    border-bottom-color: @el-table-tr-border-color;
+    a{
+      color: @app-assist-color-blue;
+      &.important-link{
+        font-weight: 700;
+      }
+    }
+  }
+  &.el-table--striped {
+    .el-table__body {
+      tr:nth-child(2n) {
+        td{
+          background-color: @el-table--striped-color;
+        }
+        &:hover {
+          td{
+            background-color: @el-table-tr-hover-background;
+          }
+        }
+      }
+    }
+  }
+}

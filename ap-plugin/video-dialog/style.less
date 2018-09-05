@@ -1,0 +1,112 @@
+@boxWidth:1100px;@boxHeight:600px;
+#video_dialog{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.63);
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  .video-dialog-box{
+    position: relative;
+    width: @boxWidth;
+    height: @boxHeight;
+    background-color: #000000;
+    div{
+      .p-0
+    }
+    .video-player{
+      width: 100%;
+      height: 100%;
+    }
+    .close-box{
+      position: absolute;
+      top: 0px;
+      right: -30px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 22px;
+      transition: all .5s;
+      -moz-transition: all .5s;	/* Firefox 4 */
+      -webkit-transition: all .5s;	/* Safari 和 Chrome */
+      -o-transition: all .5s;
+      cursor: pointer;
+      color: #c1c1c1;
+      &:hover{
+        transform:rotate(180deg);
+        -ms-transform:rotate(180deg); 
+        -moz-transform:rotate(180deg); 
+        -webkit-transform:rotate(180deg); 
+        -o-transform:rotate(180deg);
+        color: #fff;
+      }
+    }
+  }
+  .screen-right{
+    height: 100%;
+    overflow-y: auto;
+    ::-webkit-scrollbar{width:0px}
+    .screen-right-box{
+      width: 99%;
+      padding-left:5px;
+      margin-top:10px;
+      height: 50px;
+      color: rgba(175, 175, 175, 0.97);
+      cursor: pointer;
+      .img-box{
+        float: left;
+        .img-box(70px,50px);
+      }
+      .img-info{
+        float: left;
+        width: 180px;
+        padding-left: 10px;
+        padding-right: 5px;
+        height: 50px;
+        overflow-y: hidden;
+        line-height: 26px;
+        font-size: 12px;
+      }
+      &:hover{
+        color: #3BAFF1;
+      }
+    }
+    .active{
+      color: #3BAFF1;
+      background-color: rgba(34, 34, 34, 0.83)
+    }
+  }
+  
+}
+.img-box(@width,@height){
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  width: @width;
+  height: @height;
+  img{
+    max-height: @height;
+    max-width: @width;
+    line-height: @height;
+  }
+}
+.p-0{
+  padding: 0;
+}
+a{
+  color: inherit;
+}
+

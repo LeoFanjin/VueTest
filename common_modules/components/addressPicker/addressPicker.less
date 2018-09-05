@@ -1,0 +1,27 @@
+@import "../main";
+
+.sinosoft-address-picker {
+  position: relative;
+  .sinosoft-address-picker_dialog {
+    &.open {
+      opacity: 1;
+    }
+    border-radius: 4px;
+    opacity: 0;
+    border: 1px solid @app-text-border-color;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+    transform: translateY(-50%);
+    transition: .3s all ease-out;
+    .sinosoft-address-picker_dialog_body {
+      padding: 15px;
+    }
+    .sinosoft-address-picker_dialog_foot {
+      border-top: 1px solid @app-divide-border-color;
+      padding: @app-divide-border-color;
+    }
+  }
+}

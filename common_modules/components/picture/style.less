@@ -1,0 +1,49 @@
+@import "../main";
+
+@picture-width: 130px;
+.ss_picture {
+  position: relative;
+  width: @picture-width + 10;
+  height: @picture-width + 10;
+  > img {
+    z-index: 3;
+    width: @picture-width;
+    height: @picture-width;
+  }
+  .mask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    visibility: hidden;
+    z-index: 2000;
+    background-color: rgba(55, 55, 55, 0.9);
+
+    .picture-opt{
+      width: 100%;
+      line-height: 35px;
+      text-align: center;
+      font-size: 16px;
+      > a {
+        cursor: pointer;
+        padding-left: 10px;
+        padding-right: 10px;
+        :hover {
+          color: #f1f1f1;
+        }
+      }
+      .picture-opt-edit{
+        color: #337ab7;
+      }
+      .picture-opt-remove{
+        color: red;
+      }
+    }
+  }
+  &:hover {
+    .mask {
+      visibility: visible;
+    }
+  }
+}

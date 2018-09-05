@@ -1,0 +1,45 @@
+.sinosoft_uploader{
+  max-width: 500px;
+  margin: 10px 0;
+  ul {
+    li {
+      > div {
+        &.pl_content{
+          display: inline-block;
+          margin-top: 10px;
+          width: 90%;
+          .name {
+            display: inline-block;
+            font-size: 16px;
+            max-width: 200px;
+            min-width: 100px;
+            line-height: 30px;
+            padding: 0 5px;
+          }
+          .size {
+            display: inline-block;
+            font-size: 15px;
+            max-width: 200px;
+            min-width: 100px;
+            color: #555;
+            line-height: 30px;
+            margin-left: 20px;
+            padding: 0 5px;
+          }
+          .opt {
+            display: inline-block;
+            line-height: 30px;
+            padding: 0 5px;
+            .remove {
+              color: red;
+              cursor: pointer;
+            }
+          }
+        }
+        &.pl_progress{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
