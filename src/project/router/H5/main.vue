@@ -44,15 +44,41 @@
                 <div id="attr-div" data-name="刹那" data-user-sex="男" data-age="19"></div>
                 <input type="button" value="自定义属性" @click="getAttributes">
             </div>
+            <div>
+                <input id="file_in_1" type="file" @change="fileChooseCss">
+                <input id="file_in_2" type="file" @change="fileChooseJs">
+                <input id="file_in_3" type="file" @change="fileChooseImg">
+                <div id="file_div_1"></div>
+                <img id="imported_img" src="" style="height: 6 0px;">
+            </div>
             <aside>侧边</aside>
         </section>
         <footer>底部</footer>
+        <dialog title="测试" v-model="status.showModal" size="lg">
+            试试
+        </dialog>
     </div>
 </template>
 <script>
     export default {
+        data () {
+            return {
+                status: {
+                    showModal: true
+                }
+            }
+        },
         mounted () {
             // this.domTest();
+        },
+        created () {
+            // this.onlineChange();
+            window.ononline = function () {
+                console.log('net connected');
+            }
+            window.onoffline = function () {
+                console.log('net disconnected');
+            }
         },
         methods: {
             domTest() {
@@ -83,6 +109,51 @@
                 console.log(dataset.name);
                 console.log(dataset['age']);
                 dataset.level = 'lv2';
+            },
+            //读取文件
+            fileChooseCss(evt) {
+                var file = evt.target.files[0];
+                var fReader = new FileReader();
+                fReader.readAsText(file);
+                fReader.onload = function() {
+                    //读取读取的结果
+                    var result = fReader.result;
+                    var style = document.createElement('style');
+                    style.innerHTML = result;
+                    document.querySelector('head').appendChild(style);
+                }
+            },
+            fileChooseJs(evt) {
+                var file = evt.target.files[0];
+                var fReader = new FileReader();
+                fReader.readAsText(file);
+                fReader.onload = function() {
+                    //读取读取的结果
+                    var result = fReader.result;
+                    var script = document.createElement('script');
+                    script.innerHTML = result;
+                    document.querySelector('head').appendChild(script);
+                }
+            },
+            fileChooseImg(evt) {
+                var file = evt.target.files[0];
+                var fReader = new FileReader();
+                fReader.readAsDataURL(file);
+                fReader.onload = function() {
+                    //读取读取的结果
+                    var result = fReader.result;
+                    var img = document.querySelector('#imported_img');
+                    img.src = result;
+                }
+            },
+            //判断网络是否连接
+            onlineChange() {
+                var state = window.navigator.onLine;
+                if(state) {
+                    console.log('online');
+                }else{
+                    console.log('offline');
+                }
             }
         }
     }

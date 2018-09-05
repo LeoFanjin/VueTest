@@ -13,6 +13,7 @@ import store from './ap-base/store';
 import i18n from "./i18n";
 import {dialog, lang as langUtils, mask} from 'utils';
 import './app';
+import './comp.js';
 
 Vue.use(VueRouter);
 
