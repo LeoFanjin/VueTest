@@ -198,7 +198,6 @@
       },
       /** 选中目录 **/
       activeMenu(fullPath, event) {
-        console.log(arguments);
         var currentResource = {};
 
         if (fullPath && !event) {

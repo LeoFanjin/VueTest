@@ -12,6 +12,7 @@ let definePlugin = new webpack.DefinePlugin({
 
 let copyWebpackPlugin = new CopyWebpackPlugin([
   { from: path.join(wConfig.webpack.projectStaticPath, 'fonts'),              to: 'vendor/fonts' },
+  { from: path.join(wConfig.webpack.projectStaticPath, 'media'),              to: 'vendor/media' },
   { from: path.join(wConfig.webpack.projectStaticPath, 'image'),              to: 'vendor/image' },
   { from: path.join(wConfig.webpack.projectStaticPath, 'js'),              to: 'vendor/js' },
   { from: path.join(wConfig.webpack.baseStaticPath, 'css'),              to: 'vendor/css' },
