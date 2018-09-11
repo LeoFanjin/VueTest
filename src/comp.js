@@ -5,7 +5,7 @@ function capitalizeFirstLetter(string) {
 }
 
 const requireComponent = require.context('.', false, /\.vue$/);
-console.log('requireComponent',requireComponent);
+// console.log('requireComponent',requireComponent);
 
 requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName);

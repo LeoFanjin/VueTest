@@ -79,8 +79,27 @@
             window.onoffline = function () {
                 console.log('net disconnected');
             }
+            this.getGeoLocation();
+            this.setStorage();
         },
         methods: {
+            getGeoLocation() {
+                // window.navigator.geolocation.watchPosition();
+                window.navigator.geolocation.getCurrentPosition(function(position) {
+                    console.log('position',position);
+                    console.log(getGeoLocation.coords.latitude);
+                    console.log(getGeoLocation.coords.longitude);
+                }, function(msg) {
+                    console.log('msg',msg);
+                });
+            },
+            setStorage() {
+                sessionStorage.setItem('name', '刹那');
+                sessionStorage.setItem('birthday', '2199');
+                sessionStorage.setItem('nationality', 'Crugis');
+                console.log(window.sessionStorage.getItem('nationality'));
+                // window.sessionStorage.removeItem('name');
+            },
             domTest() {
                 var input = document.querySelector('input');
                 input.style.fontSize = '18px';
