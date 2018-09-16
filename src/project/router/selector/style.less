@@ -1,0 +1,217 @@
+#selector-test {
+    p:target {
+        color: #008000;
+    }
+    p:nth-last-child(2) {
+        background-color: #008000;
+    }
+    #linear-gradient-div {
+        height: 100px;
+        border: 1px solid #333;
+        // background-image: linear-gradient(to right, yellow, green);
+        // background-image: linear-gradient(90deg, yellow, green);
+        // background-image: linear-gradient(to right, yellow 50%, green);
+        background-image: linear-gradient(
+            // to right, 
+            135deg, 
+            red 20%, 
+            green 20%, green 40%, 
+            red 40%, red 60%, 
+            green 60%, green 80%, 
+            red 80%
+        );
+    }
+    #radial-gradient-div {
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+        // background-image: radial-gradient(100px at center, red, green);
+        // background-image: radial-gradient(100px at 10px 150px, red, green);
+        background-image: radial-gradient(
+            100px at 150px 150px,
+            red 5%,
+            green 5%,
+            green 10%,
+            blue 10%,
+            blue 15%,
+            yellow 15%,
+            yellow 20%,
+            #09ff00 20%,
+            #09ff00 25%
+        );
+    }
+    #rotate-box {
+        height: 300px;
+        border: 1px solid red;
+        #rotate-div {
+            margin: 50px auto;
+            padding-top: 25px;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            font-size: 100px;
+            background-color: #09ff00;
+        }
+        &:hover {
+            #rotate-div {
+                // transform: translate(100px);
+                // transform: translate(100px, 100px);
+                // transform: rotate(60deg);
+                // transform: scale(.2, 2);
+                transform: skew(30deg, 30deg);
+            }
+        }
+    }
+    #threeDrotate-box {
+        height: 300px;
+        border: 1px solid pink;
+        #threeDrotate-div {
+            margin: 0px auto;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            font-size: 100px;
+            background-color: #3700ff;
+        }
+        &:hover {
+            #threeDrotate-div {
+                // transform: translateX(100px);
+                // transform: translateY(100px);
+                // transform: translateZ(100px);
+                // transform: rotateX(30deg);
+                // transform: rotateY(30deg);
+                // transform: rotateZ(30deg);
+                // transform: scaleX(2);
+                // transform: scaleY(2);
+                // transform: scaleZ(2);
+                // transform: skewX(30deg);
+                transform: skewY(30deg);
+            }
+        }
+    }
+    #transition-box {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        transition-property: all;
+        transition-delay: 1s;
+        transition-duration: 2s;
+        transition-timing-function: linear;
+        &:hover {
+            height: 200px;
+            width: 200px;
+            background-color: #008000;
+        }
+    }
+    #animation-box {
+        height: 200px;
+        width: 200px;
+        border-top: 100px solid red;
+        border-right: 100px solid green;
+        border-bottom: 100px solid yellow;
+        border-left: 100px solid blue;
+        border-radius: 50%;
+        animation-name: rotate;
+        animation-duration: 2s;
+        animation-iteration-count: 1;/* 动画执行次数 */
+        animation-timing-function: linear;
+        animation-direction: alternate;/* 动画逆播 */
+        animation-delay: .5;
+        animation-fill-mode: forwards;/* 动画结束 */
+        &:hover {
+            animation-play-state: paused;/* 停止 */
+        }
+    }
+    /* @keyframes rotate {
+        from {
+            transform: rotateZ(0deg);
+        }
+        to {
+            transform: rotateZ(360deg);
+        }
+    } */
+    @keyframes rotate {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        50% {
+            transform: rotateZ(180deg);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+    #layout-box {
+        width: 400px;
+        height: 400px;
+        border: 1px solid red;
+        display: flex;
+        /* 子元素在主轴方向的对齐方式 */
+        // justify-content: flex-start;/* 对齐方式，默认从左向右 */
+        // justify-content: flex-end;/* 对齐方式，从右向左 */
+        // justify-content: center;/* 居中 */
+        // justify-content: space-between;/* 两端对齐 */
+        // justify-content: space-around;/* 两边空白，环绕方式 */
+
+        /* 主轴的方向作为调整 */
+        // flex-direction: row;/* 默认主轴水平 */
+        // flex-direction: row-reverse;/* 主轴水平翻转 */
+        // flex-direction: column;/* 主轴变成垂直方向，侧轴永远垂直 */
+        // flex-direction: column-reverse;/* 主轴竖直翻转 */
+
+        /* 侧轴对齐 */
+        // align-items: flex-start;
+        // align-items: flex-end;
+        // align-items: center;
+        align-items: stretch;/* 拉伸效果，没有高度的情况下有效 */
+
+        /* 默认子元素没有换行 */
+        // flex-wrap: wrap;/* 子元素换行 */
+        // flex-wrap: nowrap;/* 默认不换行 */
+        flex-wrap: wrap-reverse;/* 反转加换行 */
+
+        align-content: flex-start;/* 重新设置主轴方向，子元素没有空白行 */
+        & > .dv1 {
+            margin-left: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        & > .dv2 {
+            margin-left: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        & > .dv3 {
+            margin-left: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    }
+    #strech-box {
+        width: 400px;
+        height: 400px;
+        border: 1px solid red;
+        display: flex;
+        & > .dv1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            flex: 1;
+        }
+        & > .dv2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            flex: 2;
+        }
+        & > .dv3 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            flex: 1;
+        }
+    }
+}
