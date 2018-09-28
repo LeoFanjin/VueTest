@@ -31,8 +31,9 @@
             }
             &.back {
                 background-color: transparent;
-                transform: translateZ(-150px);
+                transform: rotateY(180deg) translateZ(150px);
                 & > ul > li {
+                    // backface-visibility: hidden;/* 还是没有遮住后面 */
                     background-color: purple;
                 }
             }
