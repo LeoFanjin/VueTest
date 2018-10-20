@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ap-web": "git+http://60.28.140.210:2525/jiyuxin/AP-WEB.git#V2.0.1-sso-beta",
+    "axios": "^0.18.0",
     "wangeditor": "^3.1.0"
   },
   "devDependencies": {
