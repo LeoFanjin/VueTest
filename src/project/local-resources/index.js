@@ -8,7 +8,8 @@ var resource = [
       { id: '102', isActive: false, name: 'H5', icon: '&#xe61;', path: "/h5"},
       { id: '103', isActive: false, name: 'canvas', icon: '&#xe61;', path: "/canvas"},
       { id: '104', isActive: false, name: 'selector', icon: '&#xe61;', path: "/selector"},
-      { id: '105', isActive: false, name: 'Magic Cube', icon: '&#xe61;', path: "/cube"}
+      { id: '105', isActive: false, name: 'Magic Cube', icon: '&#xe61;', path: "/cube"},
+      { id: '106', isActive: false, name: 'Axios', icon: '&#xe61;', path: "/axios"}
     ]
   },
 ];

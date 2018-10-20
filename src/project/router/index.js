@@ -5,6 +5,7 @@ module.exports = {
     require("./H5/router"),
     require("./canvas/router"),
     require("./selector/router"),
-    require("./cube/router")
+    require("./cube/router"),
+    require("./axios/router")
   ]
 };

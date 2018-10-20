@@ -6,6 +6,7 @@ import Element from 'element-ui';
 import Filters from 'filters';     //注册过滤器
 import MuseUI from 'muse-ui';
 import plugin from '../ap-plugin/index';
+import axios from 'axios';
 
 
 Vue.use(plugin);
@@ -15,6 +16,8 @@ Vue.use(Directives);  //使用指令插件
 Vue.use(MessageBox);  //注册消息组件
 Vue.use(Alerts);      //注册alert组件
 Vue.use(Filters);     //使用过滤器插件
+
+Vue.prototype.$axios = axios;
 
 
 //解决IE9跨域问题
