@@ -12,20 +12,28 @@
         <button type="button" @click="requestCookie">获取cookie</button>
         <div>
             选择文件：<input type="file" name="file" @change="fileUploadding">
-            进度：{{progress}}%
+            进度：{{progress}}%<br>
             <button type="button" @click="sendRequest">发送请求</button>
             <button type="button" @click="cancelRequest">取消请求</button>
+            <button type="button" @click="resumeRequest">继续请求</button>
+        </div>
+        <div>
+            <h3>拦截器</h3>
+            <button type="button" @click="sendRequestIn">发请求</button>
         </div>
     </div>
 </template>
 <script>
+    import axios from 'axios';
     export default {
         data () {
             return {
                 res1: null,
                 res2: null,
                 file: {},
-                progress: 0
+                progress: 0,
+                source: null,
+                loaded: 0
             }
         },
         methods: {
@@ -91,17 +99,20 @@
                     console.log(error);
                 });
             },
+            //传文件
             sendRequest() {
-                var self = this;
+                const cancelToken = axios.CancelToken;
+                const source = cancelToken.source();
+                this.source = source;
                 var fd = new FormData();
                 fd.append('file', this.file);
-                this.$axios.defaults.baseURL = 'http://localhost:8081/';
-                this.$axios.post('/uploadFile', fd, {
-                    onUploadProgress: function(progressEvent) {
-                        console.log(progressEvent);
-                        console.log(progressEvent.loaded);
-                        console.log(progressEvent.total);
-                        self.progress = (progressEvent.loaded/progressEvent.total)*100;
+                // this.$axios.defaults.baseURL = 'http://localhost:8081/';
+                this.$axios.post('http://60.28.140.210:10092/iiprp/fileUploadController/uploadToLocal', fd, {
+                    //携带取消标识
+                    cancelToken: source.token,
+                    onUploadProgress: (progressEvent) => {
+                        this.loaded = progressEvent.loaded;
+                        this.progress = (progressEvent.loaded/progressEvent.total)*100;
                     }
                 }).then(res => {
                     console.log(res);
@@ -110,11 +121,61 @@
                 });
             },
             fileUploadding(e) {
-                console.log(e.target.files[0]);
                 this.file = e.target.files[0];
             },
+            //取消
             cancelRequest() {
-
+                this.source.cancel();
+            },
+            //续传
+            resumeRequest() {
+                var fileData = this.file.slice(this.loaded+1, this.file.size);
+                var fd = new FormData();
+                fd.append('file', fileData);
+                //为了续传后再取消
+                const cancelToken = axios.CancelToken;
+                const source = cancelToken.source();
+                this.source = source;
+                this.$axios.post('http://60.28.140.210:10092/iiprp/fileUploadController/uploadToLocal', fd, {
+                    //携带取消标识
+                    cancelToken: source.token,
+                    onUploadProgress: (progressEvent) => {
+                        this.loaded = progressEvent.loaded;
+                        this.progress = (progressEvent.loaded/progressEvent.total)*100;
+                    }
+                }).then(res => {
+                    console.log(res);
+                }).catch(error => {
+                    console.log(error);
+                });
+            },
+            sendRequestIn() {
+                this.$axios.defaults.baseURL = 'http://localhost:8081/';
+                //配置拦截器，use给请求之前做的事可以使多件，也可以use多次
+                this.$axios.interceptors.request.use(function(config) {
+                    console.log(config);
+                    //设置请求头
+                    var token = localStorage.getItem('token');
+                    if('token') {
+                        config.headers['token'] = token;
+                    }
+                    return config;
+                });
+                //相应拦截器
+                this.$axios.interceptors.response.use(function(res) {
+                    console.log(res);
+                    if(res.headers.token) {
+                        var token = res.headers.token;
+                        localStorage.setItem('token', token);
+                    }
+                    return res;
+                });
+                this.$axios.get('/list'
+                ).then(res => {
+                    console.log(res);
+                }).catch(error => {
+                    console.log(error);
+                });
             }
         }
     }
